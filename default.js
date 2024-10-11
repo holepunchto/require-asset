@@ -1,7 +1,7 @@
-module.exports = function asset (specifier, referrer) {
+module.exports = function asset (specifier, parentURL) {
   let msg = `Cannot find asset '${specifier}'`
 
-  if (referrer) msg += ` imported from '${referrer}'`
+  if (parentURL) msg += ` imported from '${parentURL}'`
 
   throw new Error(msg)
 }
