@@ -17,11 +17,7 @@ module.exports = function asset (specifier, parentURL) {
     }
   }
 
-  let msg = `Cannot find asset '${specifier}'`
-
-  if (parentURL) msg += ` imported from '${parentURL.href}'`
-
-  throw new Error(msg)
+  throw new Error(`Cannot find asset '${specifier}' imported from '${parentURL.href}'`)
 
   function readPackage (packageURL) {
     try {
