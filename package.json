@@ -1,6 +1,6 @@
 {
   "name": "require-asset",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Import assets across JavaScript runtimes",
   "exports": {
     ".": {
