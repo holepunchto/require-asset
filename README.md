@@ -9,7 +9,9 @@ npm i require-asset
 ## Usage
 
 ```js
-const asset = require('require-asset')('./asset.txt', __filename)
+require.asset = require('require-asset')
+
+const asset = require.asset('./asset.txt', __filename)
 ```
 
 ## License
