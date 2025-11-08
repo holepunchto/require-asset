@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const Bundle = require('bare-bundle')
 const evaluate = require('bare-bundle-evaluate')
-const requireAsset = require('.')
+const requireAsset = require('require-asset')
 
 test('basic', (t) => {
   t.is(
@@ -77,24 +77,14 @@ test('bundle with preresolutions', (t) => {
 
 function write(bundle, keys, base = '/') {
   for (const key of keys) {
-    bundle.write(
-      path.join(base, key),
-      fs.readFileSync(path.join(__dirname, key))
-    )
+    bundle.write(path.join(base, key), fs.readFileSync(path.join(__dirname, key)))
   }
 }
 
 function withRequireAsset(bundle) {
   write(
     bundle,
-    [
-      'package.json',
-      'index.js',
-      'lib/runtime.js',
-      'lib/runtime/bare.js',
-      'lib/runtime/default.js',
-      'lib/runtime/node.js'
-    ],
+    ['package.json', 'lib/bare.js', 'lib/default.js', 'lib/node.js'],
     '/node_modules/require-asset'
   )
 }

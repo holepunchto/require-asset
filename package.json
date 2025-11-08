@@ -3,8 +3,12 @@
   "version": "1.1.0",
   "description": "Import assets across JavaScript runtimes",
   "exports": {
-    ".": "./index.js",
-    "./package": "./package.json"
+    "./package": "./package.json",
+    ".": {
+      "bare": "./lib/bare.js",
+      "node": "./lib/node.js",
+      "default": "./lib/default.js"
+    }
   },
   "imports": {
     "fs": {
@@ -21,14 +25,14 @@
     }
   },
   "files": [
-    "index.js",
     "lib"
   ],
   "scripts": {
     "test": "npm run lint && npm run test:bare && npm run test:node",
     "test:bare": "bare test.js",
     "test:node": "node test.js",
-    "lint": "prettier . --check"
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -44,16 +48,16 @@
     "bare": ">=1.10.0"
   },
   "dependencies": {
-    "bare-module-resolve": "^1.6.2",
-    "bare-url": "^2.1.0"
+    "bare-module-resolve": "^1.6.2"
   },
   "devDependencies": {
     "bare-bundle": "^1.8.1",
     "bare-bundle-evaluate": "^1.1.0",
     "bare-fs": "^4.0.0",
     "bare-path": "^3.0.0",
+    "bare-url": "^2.1.0",
     "brittle": "^3.7.0",
     "prettier": "^3.4.1",
-    "prettier-config-standard": "^7.0.0"
+    "prettier-config-holepunch": "^2.0.0"
   }
 }
