@@ -45,7 +45,8 @@
   },
   "homepage": "https://github.com/holepunchto/require-asset#readme",
   "engines": {
-    "bare": ">=1.10.0"
+    "bare": ">=1.10.0",
+    "node": ">=18"
   },
   "dependencies": {
     "bare-module-resolve": "^1.6.2"
