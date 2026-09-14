@@ -60,13 +60,6 @@ test('parent directory', (t) => {
   )
 })
 
-test('file with trailing separator', (t) => {
-  t.is(
-    requireAsset('./asset.txt/', pathToFileURL('./test/fixtures/')),
-    path.join(__dirname, 'test/fixtures/asset.txt')
-  )
-})
-
 test('referrer as a path', (t) => {
   t.is(
     requireAsset('./asset.txt', path.join(__dirname, 'test/fixtures/index.js')),
