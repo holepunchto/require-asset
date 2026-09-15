@@ -53,6 +53,10 @@ test('file in a nested directory', (t) => {
   )
 })
 
+test('file with trailing separator', (t) => {
+  t.exception(() => requireAsset('./asset.txt/', pathToFileURL('./test/fixtures/')))
+})
+
 test('parent directory', (t) => {
   t.is(
     requireAsset('..', pathToFileURL('./test/fixtures/directory/')),
